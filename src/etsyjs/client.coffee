@@ -1,6 +1,6 @@
 # Required modules
 request = require 'request'
-OAuth = require 'OAuth'
+OAuth = require 'oauth'
 util = require 'util'
 
 User = require './user'
