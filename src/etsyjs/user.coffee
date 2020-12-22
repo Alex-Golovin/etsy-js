@@ -3,6 +3,14 @@ util = require('util')
 class User
 
   constructor: (@userId, @client) ->
+    
+  addToCart: ({ listingId }, cb) ->
+    @client.post "/users/#{@userId}/carts", ({ user_id: @userId, listing_id: listingId }), (err, status, body, headers) ->
+      return cb(err) if err
+      if status isnt 200
+        cb(new Error('add listing to cart error'))
+      else
+        cb null, body, headers
 
   # Retrieves a User by id
   # '/users/:user_id' GET
