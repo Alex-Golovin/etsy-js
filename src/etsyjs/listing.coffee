@@ -12,6 +12,16 @@ class Listing
       else
         cb null, body, headers
 
+  # Retrieves listings inventory by listing id
+  # '/listings/:listing_id' GET
+  inventory: (cb) ->
+    @client.get "/listings/#{@listingId}/inventory", (err, status, body, headers) ->
+      return cb(err) if err
+      if status isnt 200
+        cb(new Error('Get listings error'))
+      else
+        cb null, body, headers
+
   # Finds all active Listings.
   # '/listings/active' GET
   active: (params..., cb) ->
