@@ -4,8 +4,8 @@ class User
 
   constructor: (@userId, @client) ->
     
-  addToCart: ({ listingId, personalization, selected_variations }, cb) ->
-    @client.post "/users/#{@userId}/carts", ({ user_id: @userId, listing_id: listingId, personalization: personalization, selected_variations }), (err, status, body, headers) ->
+  addToCart: ({ listingId, personalization, listing_inventory_id }, cb) ->
+    @client.post "/users/#{@userId}/carts", ({ user_id: @userId, listing_id: listingId, personalization: personalization, listing_inventory_id }), (err, status, body, headers) ->
       return cb(err) if err
       if status isnt 200
         cb(new Error('add listing to cart error'))
