@@ -1,7 +1,7 @@
 {
   "name": "etsy-js",
   "description": "An asynchronous nodejs wrapper for the etsy v2 api.",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "./lib/etsyjs",
   "repository": {
     "type": "git",
